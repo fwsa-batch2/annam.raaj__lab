@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let answer=0;
+        let operator=prompt("Enter the operator from (+,-,*,/,% or **) :");
+        let no1=parseInt(prompt("Enter first number:"));
+        let no2=parseInt(prompt("Enter  second number"));
+    switch(operator){
+        case "+":
+          answer=((no1)+(no2));
+          break;
+        case "-":
+          answer=((no1)-(no2)); 
+          break;
+        case "*":
+          answer=((no1)*(no2));
+          break;
+        case "/":
+          answer=((no1)/(no2));
+          break;
+        case "**":
+          answer=((no1)**(no2));
+          break;
+        case "%":
+          answer=((no1)%(no2));
+    }
+    document.write(`The answer forthe operation ${no1} ${operator} ${no2} is ${answer}`);
+    </script>
+</body>
+</html>

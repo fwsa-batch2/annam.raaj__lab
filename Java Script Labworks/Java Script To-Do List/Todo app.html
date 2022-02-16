@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-image: url("todo1.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+        p{
+            font-size: 50px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: bold;
+            margin-left: 800px;
+            margin-top: 80px;
+        }
+        .container1{
+            width: 800px;
+            height: 500px;
+            background-color: white;
+            border-radius: 70px;
+            margin-left: 550px;
+            margin-top: 7px;
+
+        }
+
+        input {
+            width: 500px;
+            height: 50px;
+            padding-left: 20px;
+            font-size: 17px;
+            font-weight: 500;
+            border: 4px black solid;
+            margin-top: 50px;
+            margin-left: 75px;
+        }
+        .ad{
+            background-color: green;
+            margin-left: 10px;
+        }
+        button {
+            border: 2px black solid;
+            background-color: rgb(92, 92, 240);
+            color:  white;
+            padding-top: 9px;
+            padding-bottom: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .del{
+            background-color: red;
+            margin-left: 270px;
+        }
+
+        ul {
+
+            margin-left: 50px;
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>To Do List</p>
+    <div class="container1">
+        <div class="form">
+            
+            <form onsubmit="submitHandler()">
+                <input type="text" placeholder="Enter new task" id="input" required>
+                <button type="submit" class="ad" id="submitButton"> ADD + </button>
+
+
+            </form>
+            <button class="del" id="click" onclick="deleteAllTask()">DELETE ALL TASKS</button>
+
+            <ul id="addTasks">
+
+            </ul>
+        </div>
+    </div>
+    <script>
+        let list = [];
+        function getAllTasks() {
+            const arrayToString = localStorage.getItem("tasks");
+            const inArray = JSON.parse(arrayToString);
+            return inArray;
+        }
+        function deleteAllTask() {
+            localStorage.setItem("tasks", [])
+            let ul = document.getElementById("addTasks");
+            ul.innerHTML = "";
+        }
+        function updateTasks(task) {
+            list.push(task);
+            const arrayToString = JSON.stringify(list);
+            localStorage.setItem("tasks", arrayToString);
+        }
+        function renderList() {
+            let liTag = "<br>";
+            for (i = 0; i < list.length; i++) {
+                let task = "<li>" + list[i] + "</li>" + "<br>";
+                liTag += task;
+
+            };
+            let ul = document.getElementById("addTasks");
+            ul.innerHTML = liTag;
+
+        }
+        function submitHandler() {
+            event.preventDefault();
+            let input = document.getElementById("input");
+            updateTasks(input.value);
+            renderList();
+        };
+        function pageOnLoadHandler() {
+            const allTasks = getAllTasks();
+            list = allTasks;
+            renderList();
+        }
+        pageOnLoadHandler();
+
+    </script>
+</body>
+
+</html>

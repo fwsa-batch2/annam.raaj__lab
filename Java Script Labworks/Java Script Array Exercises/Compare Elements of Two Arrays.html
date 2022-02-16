@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function compareElementOfTwoArrays(arr1, arr2) {
+            if (arr1.length != arr2.length) {
+                return false;
+            }
+            else{
+                let answer=false;
+                for(i=0;i<arr2.length;i++){
+
+                    if(arr1[i] != arr2[i]){
+                        answer=false;
+                    }
+                    else{
+                        answer=true;
+                    }
+                }
+            return answer;
+            }
+        }
+
+        let array1=[1,2,3,4,5,];
+        let array2=[1,2,3,4,5];
+
+    let result= compareElementOfTwoArrays(array1,array2);
+
+    if(result){
+        document.write("The Array have the same elements.")
+    }
+    else{
+        document.write("The Array don't have the same elements.")
+    }
+    </script>
+</body>
+</html>

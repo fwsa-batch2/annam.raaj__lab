@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function extract(arr,property) {
+            let extractedValues=[];
+
+          for(i=0;i<arr.length;i++){
+              extractedValues.push(arr[i][property]);
+          }
+          return extractedValues;
+        }
+        let students=[{name: 'Pavan', roll_no: 1 }, {name: 'Suguram', roll_no: 2 }, {name: 'Deepak', roll_no: 3 }, {name: 'Kasi', roll_no: 4 }]
+ 
+        let answer=extract(students, "name");
+        document.write(answer);
+    </script>
+</body>
+</html>

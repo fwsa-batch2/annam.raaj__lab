@@ -1,0 +1,101 @@
+not null --> Will not accept null.
+
+Example --> name varchar(30) not null
+
+
+unique --> should be unique value NULL will be accepted many times but if value is given it will not accept more that one time.
+
+Example --> roll tinyint unique
+
+
+default { default VALUE  } --> Will give default value if we did give any value to that.
+
+Example --> Language varchar(20) default "English"
+
+check { check(COLUMN AGE CONDITION[<,>,=] VALUE)  }  --> Will check whether the value satisfies the condition.
+
+Example --> age tinyint check(age>=1)
+
+
+primary key --> combination of not null and unique 
+
+Example --> id tinyint primary key 
+
+
+foreign key --> will get the values of primary key in the previous table as foreign key.
+               And one more thing we should give in foreign key only the valuse in previous table if not will how error.
+               
+mysql> insert into United values(5,"Meenu",10,100);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`test`.`United`, CONSTRAINT `United_ibfk_1` FOREIGN KEY (`id`) REFERENCES `uSquare` (`id`))
+                Here 10 is not there in first table so it shows error.
+                
+                
+Example --> mysql> create table United(roll tinyint primary key,name varchar(20) not null,id tinyint,marks tinyint default 0,foreign key(id) references uSquare(id));
+
+
+
+
+Example For Constraints Except Foreign Key And Default :-  
+
+
+mysql> create table uSquare(id tinyint primary key,name varchar(30) not null,roll tinyint unique not null,age tinyint check(age>=1) not null);
+Query OK, 0 rows affected (0.07 sec)
+mysql> desc uSquare;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint     | NO   | PRI | NULL    |       |
+| name  | varchar(30) | NO   |     | NULL    |       |
+| roll  | tinyint     | NO   | UNI | NULL    |       |
+| age   | tinyint     | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+
+
+Example For Constraints Except unique :-  
+
+
+mysql> create table United(roll tinyint primary key,name varchar(20) not null,id tinyint,marks tinyint default 0,foreign key(id) references uSquare(id));
+Query OK, 0 rows affected (0.04 sec)
+mysql> desc United;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| roll  | tinyint     | NO   | PRI | NULL    |       |
+| name  | varchar(20) | NO   |     | NULL    |       |
+| id    | tinyint     | YES  | MUL | NULL    |       |
+| marks | tinyint     | YES  |     | 0       |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+Arthimatic operators.
+
++ , - , * , & , /
+
+
+
+Logical operators
+
+or , ||      and , &&  
+
+Comparrission oprators 
+
+< , > , = , <= , >= 
+
+
+Claues 
+
+
+
+

@@ -1,9 +1,11 @@
 sudo -u root mysql
 PASSWORD -->login into mysql
 
-show databases; --> will show the databases which are in our laptop.
+##### 1. SHOW DATABASES; 
 
-#### ``` show databases; ```
+ * will show the databases which are in our laptop.
+
+#### ``` SHOW DATABASES; ```
 
 | Database           |
 |:------------------:|
@@ -12,27 +14,43 @@ show databases; --> will show the databases which are in our laptop.
 | performance_schema |
 | sys                |
 
- --> Default databases in laptop.
+* Default databases in laptop.
 
-create database DATABASE NAME; -->will create database with that name.
+##### 2. CREATE DATABASE database_name; 
 
-#### ``` create database FWSA; ```
+* will create database with that name.
 
-use  DATABASE NAME; --> will go to that database. 
-
-#### ``` use FWSA; ```                    
-Database changed                          
-
-show tables; --> will show the tables in that database.
+#### ``` CREATE DATABASE FWSA; ```
 
 
-create table:- TABLE NAME(COLUMN NAME DATA TYPE , COLUMN NAME DATA TYPE);  --> will create table with rows id and name.
+##### 3. USE  database_name; 
+* will go to the database mentioned. 
 
-#### ``` create table Students(TempID varchar(8) primary key  , Name_Of_Student varchar(50) not null , Office varchar(20) not null); ```
+#### ``` USE FWSA; ```   <br>                 
 
-desc TABLE NAME; --> will show validations for that table.
+##### 4. SHOW TABLES; 
 
-#### ``` desc Students; ```
+* will show the tables in that database.
+
+
+| Tables_in_FWSA |
+|:--------------:|
+| Students       |
+| Teacher        |
+
+
+
+##### 5. CREATE TABLE table_name(column_name datatype KEY , column_name datatype);  
+ 
+ * will create table with rows id and name.
+
+#### ``` CREATE TABLE Students(TempID varchar(8) PRIMARY KEY  , Name_Of_Student varchar(50) NOT NULL , Office varchar(20) NOT NULL ); ```
+
+##### 6. DESC table_name; 
+
+* will show validations for that table.
+
+#### ``` DESC Students; ```
 
 | Field           | Type        | Null | Key | Default | Extra |
 |:---------------:|:-----------:|:----:|:---:|:-------:|:-----:|
@@ -41,53 +59,64 @@ desc TABLE NAME; --> will show validations for that table.
 | Office          | varchar(20) | NO   |     | NULL    |       |
 
 
-insert into TABLE NAME values(VALUE , VALUE , VAULE );
+##### 7. INSERT INTO  table_name(column_1 , column_2 ) VALUES (value_1 , value_2);
+
+* will insert values into table.
  
-#### ``` insert into Students values("A0016" , "Pavan Raaj" , "Chennai"); ```
+#### ``` INSERT INTO Students VALUES("A0016" , "Pavan Raaj" , "Chennai"); ```
 
-select * from TABLE NAME; --> will show the table.
+##### 8. SELECT * FROM TABLE NAME; 
+* will show the table.
 
-#### ``` select * from Students; ```
+#### ``` SELECT * FROM Students; ```
 
 
 | TempID | Name_Of_Student | Office  |
 |:------:|:---------------:|:-------:|
 | A0016  | Pavan Raaj      | Chennai |
 
+##### 9. UPDATE table_name SET  column_name= vlaue  WHERE condition; 
 
-delete from TABLE NAME where COLUMN NAME=VALUE; --> will delete a row in table.
+* will be used to update a certain value in table.
+
+#### ``` UPDATE Students SET TempID="A0022" WHERE Name_Of_Student="Jerusheya"; ```
+
+
+
+##### 10. DELETE FROM table_name WHERE condition; 
+
+* will delete a row in table.
 
 #### ``` delete from students where id=17; ```
 
-update TABLE NAME set __What to change__ COLUMN NAME=VALUE __Where to change__ where COLUMN NAME=VALUE; --> will change the wrong thing to correct or update.
 
-#### ``` update Students set TempID="A0022" where Name_Of_Student="Jerusheya"; ```
+#### Alter's
 
+##### (a) ALTER TABLE table_name DROP COLUMN column_name;
 
-delete from TABLE NAME where COLUMN NAME=VALUE;  --> will delete a row from table.
-
-#### ``` delete from students where id=17; ```
+ #### ``` ALTER TABLE Customers DROP COLUMN Email; ```
 
 
-Alter's
+##### (b) ALTER TABLE table_name ADD column_name datatype; 
 
-ALTER TABLE table_name DROP COLUMN column_name;
+* will add new column in Table
 
-mysql> ALTER TABLE Customers DROP COLUMN Email;
-
-
-ALTER TABLE table_nameADD column_name datatype; --> will add new column in Table
-
-mysql> ALTER TABLE Customers ADD Email varchar(255);
+#### ``` ALTER TABLE Customers ADD Email varchar(255); ```
 
 
-ALTER TABLE table_name MODIFY COLUMN column_name datatype;
+##### (c) ALTER TABLE table_name MODIFY COLUMN column_name datatype;
 
 
 CHANGE
 
-drop table TABLE NAME; -->will delete that table.
+##### DROP TABLE table_name; 
 
-drop database DATABASE NAME; -->will delete that database.
+* will delete that table.
 
-exit --> will logout from mysql
+##### DROP DATABASE database_name; 
+
+* will delete that database.
+
+##### exit 
+
+* will logout from mysql

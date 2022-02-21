@@ -3,7 +3,7 @@ PASSWORD -->login into mysql
 
 show databases; --> will show the databases which are in our laptop.
 
-##### ``` show databases; ```
+#### ``` show databases; ```
 
 | Database           |
 |:------------------:|
@@ -16,11 +16,11 @@ show databases; --> will show the databases which are in our laptop.
 
 create database DATABASE NAME; -->will create database with that name.
 
-##### ``` create database FWSA; ```
+#### ``` create database FWSA; ```
 
 use  DATABASE NAME; --> will go to that database. 
 
-##### ``` use FWSA; ```                    
+#### ``` use FWSA; ```                    
 Database changed                          
 
 show tables; --> will show the tables in that database.
@@ -28,11 +28,11 @@ show tables; --> will show the tables in that database.
 
 create table:- TABLE NAME(COLUMN NAME DATA TYPE , COLUMN NAME DATA TYPE);  --> will create table with rows id and name.
 
-##### ``` create table Students(TempID varchar(8) primary key  , Name_Of_Student varchar(50) not null , Office varchar(20) not null); ```
+#### ``` create table Students(TempID varchar(8) primary key  , Name_Of_Student varchar(50) not null , Office varchar(20) not null); ```
 
 desc TABLE NAME; --> will show validations for that table.
 
-##### ``` desc Students; ```
+#### ``` desc Students; ```
 
 | Field           | Type        | Null | Key | Default | Extra |
 |:---------------:|:-----------:|:----:|:---:|:-------:|:-----:|
@@ -43,11 +43,11 @@ desc TABLE NAME; --> will show validations for that table.
 
 insert into TABLE NAME values(VALUE , VALUE , VAULE );
  
-##### ``` insert into Students values("A0016" , "Pavan Raaj" , "Chennai"); ```
+#### ``` insert into Students values("A0016" , "Pavan Raaj" , "Chennai"); ```
 
 select * from TABLE NAME; --> will show the table.
 
-##### ``` select * from Students; ```
+#### ``` select * from Students; ```
 
 
 | TempID | Name_Of_Student | Office  |
@@ -57,16 +57,16 @@ select * from TABLE NAME; --> will show the table.
 
 delete from TABLE NAME where COLUMN NAME=VALUE; --> will delete a row in table.
 
-##### ``` delete from students where id=17; ```
+#### ``` delete from students where id=17; ```
 
 update TABLE NAME set __What to change__ COLUMN NAME=VALUE __Where to change__ where COLUMN NAME=VALUE; --> will change the wrong thing to correct or update.
 
-##### ``` update Students set TempID="A0022" where Name_Of_Student="Jerusheya"; ```
+#### ``` update Students set TempID="A0022" where Name_Of_Student="Jerusheya"; ```
 
 
 delete from TABLE NAME where COLUMN NAME=VALUE;  --> will delete a row from table.
 
-##### ``` delete from students where id=17; ```
+#### ``` delete from students where id=17; ```
 
 
 Alter's

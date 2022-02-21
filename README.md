@@ -48,11 +48,11 @@ select * from TABLE NAME; --> will show the table.
 
 mysql> select * from Students;
 
-+--------+-----------------+---------+
+
 | TempID | Name_Of_Student | Office  |
-+--------+-----------------+---------+
+|:------:|:---------------:|:-------:|
 | A0016  | Pavan Raaj      | Chennai |
-+--------+-----------------+---------+
+
 
 delete from TABLE NAME where COLUMN NAME=VALUE; --> will delete a row in table.
 

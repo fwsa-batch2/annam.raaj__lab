@@ -88,4 +88,5 @@ CHANGE
 drop table TABLE NAME; -->will delete that table.
 
 drop database DATABASE NAME; -->will delete that database.
+
 exit --> will logout from mysql

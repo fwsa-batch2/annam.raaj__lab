@@ -74,12 +74,14 @@ ALTER TABLE table_name DROP COLUMN column_name;
 
 mysql> ALTER TABLE Customers DROP COLUMN Email;
 
+
 ALTER TABLE table_nameADD column_name datatype; --> will add new column in Table
 
 mysql> ALTER TABLE Customers ADD Email varchar(255);
 
 
-MODIFY
+ALTER TABLE table_name MODIFY COLUMN column_name datatype;
+
 
 CHANGE
 

@@ -1,0 +1,40 @@
+ 11.Alter's
+
+ (a) Drop:- 
+
+ ALTER TABLE table_name DROP COLUMN column_name;
+
+   ALTER TABLE Customers DROP COLUMN Email; 
+
+
+ (b) Add column:-
+
+* will add new column in Table
+
+ ALTER TABLE table_name ADD column_name datatype; 
+
+  ALTER TABLE Customers ADD Email varchar(255); 
+
+
+ (c) Modify:-
+
+* The MODIFY command is used to __change the column definition__ of the table.
+
+ ALTER TABLE table_name MODIFY COLUMN column_name column defination;
+
+  ALTER TABLE Studnets  MODIFY student_name varchar(50);   
+
+ (d) Change:-
+
+* After the CHANGE keyword, you name the column you want to change, then specify the new definition, which includes the new name.
+
+
+ ALTER TABLE table_name  CHANGE  column_old_name column_new_name column_definition; 
+
+  ALTER TABLE Studnets CHANGE user_name student_name varchar(20);  
+
+ (e) RENAME table:-
+
+ ALTER TABLE table_name  RENAME TO new_table_name;  
+
+  ALTER TABLE Students RENAME TO student_details;   

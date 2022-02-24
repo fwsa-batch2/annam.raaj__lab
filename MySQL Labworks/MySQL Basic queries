@@ -65,7 +65,7 @@ SHOW DATABASES;
 
 * will insert values into table.
  
-``` INSERT INTO Students VALUES("A0016" , "Pavan Raaj" , "Chennai"); ```
+ INSERT INTO Students VALUES("A0016" , "Pavan Raaj" , "Chennai"); 
 
  8. SELECT * FROM TABLE NAME; 
 * will show the table.

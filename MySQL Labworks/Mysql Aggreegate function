@@ -1,0 +1,109 @@
+12.Aggreegate functions:-
+
++----+-----------+-----+-----------+
+| id | Name      | Age | City      |
++----+-----------+-----+-----------+
+|  1 | Pavan     |  18 | Nellore   |
+|  2 | Sugu      |  19 | Chennai   |
+|  3 | Meenu     |  18 | Bengal    |
+|  4 | Keerthana |  19 | Delhi     |
+|  5 | Venkat    |  18 | Bengalore |
++----+-----------+-----+-----------+
+
+
+#### (a)SUM:-
+
+* will add the values in the column.
+
+#### SELECT SUM(column_name) FROM  table_name;
+
+#### ``` SELECT SUM(Age) AS "Sum of ages:-" FROM Test_students; ``` 
+
+
+
++---------------+
+| Sum of ages:- |
++---------------+
+|            92 |
++---------------+
+         
+
+#### (b)AVG:-
+
+* will give average alue of a column.
+
+#### SELECT AVG(column_name) FROM table_name;
+
+#### ``` SELECT AVG(Age) FROM Test_students; ```
++----------+
+| AVG(Age) |
++----------+
+|  18.4000 |
++----------+
+
+#### (c)MIN:-
+
+* will give a min value of that column.
+
+#### SELECT MIN(column_name) FROM table_name;
+
+#### ``` SELECT MIN(Age) FROM Test_students; ```
+
++----------+
+| MIN(Age) |
++----------+
+|       18 |
++----------+
+
+#### (d)MAX:-
+
+* will give a max value of that column.
+
+#### SELECT MAX(column_name) FROM table_name;
+
++----------+
+| MAX(Age) |
++----------+
+|       19 |
++----------+
+
+#### (e)COUNT:-
+
+* will give the count of that column.
+
+#### SELECT COUNT(*) FROM table_name;
+
+#### ``` SELECT COUNT(Age) FROM Test_students; ```
+
++------------+
+| COUNT(Age) |
++------------+
+|          5 |
++------------+
+
+#### (f)DISTINCT:-
+
+* The DISTINCT keyword that allows us to omit duplicates from our results. This is achieved by grouping similar values together .
+
+#### SELECT  DISTINCT (column_name) FROM table_name;
+
+#### ``` SELECT Age FROM Test_students; ```
+
++-----+
+| Age |
++-----+
+|  18 |
+|  19 |
+|  18 |
+|  19 |
+|  18 |
++-----+
+
+#### ``` SELECT DISTINCT(Age) FROM Test_students; ```
+
++-----+
+| Age |
++-----+
+|  18 |
+|  19 |
++-----+

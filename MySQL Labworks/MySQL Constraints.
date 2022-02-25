@@ -69,33 +69,3 @@ mysql> desc United;
 +-------+-------------+------+-----+---------+-------+
 4 rows in set (0.00 sec)
 
-
-
-
-
-
-
-
-
-
-
-Arthimatic operators.
-
-+ , - , * , & , /
-
-
-
-Logical operators
-
-or , ||      and , &&  
-
-Comparrission oprators 
-
-< , > , = , <= , >= 
-
-
-Claues 
-
-
-
-

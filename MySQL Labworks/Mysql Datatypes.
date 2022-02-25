@@ -1,0 +1,72 @@
+MySQL Data Types:-
+
+In MySQL there are three main data types: 
+1.Numeric,
+2.String,
+3.Date and time.
+
+
+
+1.Numeric Data Types:-
+
+
+TINYINT(size):-
+
+     A very small integer. Signed range  from -128 to 127. Unsigned range is from 0 to 255. The size parameter 
+specifies the maximum display width (which is 255) Upto 4 digits.
+
+SMALLINT(size):-	
+
+    A small integer. Signed range is from -32768 to 32767. Unsigned range is from 0 to 65535. The size parameter 
+specifies the maximum display width (which is 255) Upto 5 digits.
+
+MEDIUMINT(size):-
+
+    A medium integer. Signed range is from -8388608 to 8388607. Unsigned range is from 0 to 16777215. 
+The size parameter specifies the maximum display width (which is 255) Upto 9 digits.
+
+INT(size):-
+
+     A medium integer. Signed range is from -2147483648 to 2147483647. Unsigned range is from 0 to 4294967295. 
+The size parameter specifies the maximum display width (which is 255) Upto 11 digits.
+
+BIGINT(size):-{Mainly used for Writing Account Number.}
+
+	A large integer. Signed range is from -9223372036854775808 to 9223372036854775807. Unsigned 
+range is from 0 to 18446744073709551615. The size parameter specifies the maximum display width (which is 255) Upto 20 digits.
+
+BOOL:-
+	Zero is considered as false, nonzero values are considered as true.
+
+DECIMAL(size, d):-	
+    An exact fixed-point number. The total number of digits is specified in size. The number of digits after 
+the decimal point is specified in the d parameter. The maximum number for size is 65. The maximum number for d is 30. 
+The default value for size is 10. The default value for d is 0.
+
+2.String Data Types:-
+
+CHAR(size):-
+
+	A FIXED length string (can contain letters, numbers, and special characters). The size parameter specifies the column 
+length in characters - can be from 0 to 255. Default is 1.
+
+VARCHAR(size):-
+
+      A VARIABLE length string (can contain letters, numbers, and special characters). The size parameter 
+specifies the maximum column length in characters - can be from 0 to 65535.
+
+TEXT(size):- {Mainly used to review text area}
+	Holds a string with a maximum length of 65,535 bytes.
+
+
+ 3.Date and Time Data Types:-
+
+ DATE:-
+ 	A date. Format: YYYY-MM-DD. The supported range is from '1000-01-01' to '9999-12-31' .  
+
+DATETIME :- YYYY-MM-DD HH:MM:SS
+
+TIMESTAMP :- YYYYMMDDHHMMSS
+
+TIME :- HH:MM:SS
+

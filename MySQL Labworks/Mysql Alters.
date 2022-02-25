@@ -1,4 +1,4 @@
- 11.Alter's
+Alter's
 
  (a) Drop:- 
 
@@ -38,3 +38,4 @@
  ALTER TABLE table_name  RENAME TO new_table_name;  
 
   ALTER TABLE Students RENAME TO student_details;   
+

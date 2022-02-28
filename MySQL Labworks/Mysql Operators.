@@ -15,12 +15,266 @@ MySQL Operators:-
 +-----+-------+
 
 
-mysql> select 4+3,4-3,4*3,4/2,90%4;
-+-----+-----+-----+--------+------+
-| 4+3 | 4-3 | 4*3 | 4/2    | 90%4 |
-+-----+-----+-----+--------+------+
-|   7 |   1 |  12 | 2.0000 |    2 |
-+-----+-----+-----+--------+------+
+mysql> SELECT 10+5 AS "Add" ,10-5 AS "Subtract",20/2 AS "Division" ,11%5 AS "Modulos";
++-----+----------+----------+---------+
+| Add | Subtract | Division | Modulos |
++-----+----------+----------+---------+
+|  15 |        5 |  10.0000 |       1 |
++-----+----------+----------+---------+
+1 row in set (0.00 sec)
+
+
 
 
 2. MySQL Comparison Operators:-
+
++-----+-------------------------+
+| =   | Equal to                | 
++-----+-------------------------+
+| >   | Greater Than            | 
++-----+-------------------------+
+| <   | Less Than               | 
++-----+-------------------------+
+| >=  | Greater than/equal to   | 
++-----+-------------------------+
+| <=  | Less than / equal to    | 
++-----+-------------------------+
+| <>  | Not Equal to            |
++-----+-------------------------+
+
+mysql> SELECT * FROM Test_students;
++----+-----------+-----+-----------+
+| id | Name      | Age | City      |
++----+-----------+-----+-----------+
+|  1 | Pavan     |  18 | Nellore   |
+|  2 | Sugu      |  19 | Chennai   |
+|  3 | Meenu     |  18 | Bengal    |
+|  4 | Keerthana |  19 | Delhi     |
+|  5 | Venkat    |  18 | Bengalore |
++----+-----------+-----+-----------+
+5 rows in set (0.00 sec)
+
+(a) Equal to:-
+
+mysql> SELECT * FROM Test_students WHERE Age=18;
++----+--------+-----+-----------+
+| id | Name   | Age | City      |
++----+--------+-----+-----------+
+|  1 | Pavan  |  18 | Nellore   |
+|  3 | Meenu  |  18 | Bengal    |
+|  5 | Venkat |  18 | Bengalore |
++----+--------+-----+-----------+
+
+(b) Greater Than :-
+
+mysql> SELECT * FROM Test_students WHERE Age>18;
++----+-----------+-----+---------+
+| id | Name      | Age | City    |
++----+-----------+-----+---------+
+|  2 | Sugu      |  19 | Chennai |
+|  4 | Keerthana |  19 | Delhi   |
++----+-----------+-----+---------+
+2 rows in set (0.00 sec)
+
+
+(c) Less than:-
+
+mysql> SELECT * FROM Test_students WHERE Age<20;
++----+-----------+-----+-----------+
+| id | Name      | Age | City      |
++----+-----------+-----+-----------+
+|  1 | Pavan     |  18 | Nellore   |
+|  2 | Sugu      |  19 | Chennai   |
+|  3 | Meenu     |  18 | Bengal    |
+|  4 | Keerthana |  19 | Delhi     |
+|  5 | Venkat    |  18 | Bengalore |
++----+-----------+-----+-----------+
+5 rows in set (0.00 sec)
+
+(d) Greater than / equal to :-
+
+mysql> SELECT * FROM Test_students WHERE Age>=17;
++----+-----------+-----+-----------+
+| id | Name      | Age | City      |
++----+-----------+-----+-----------+
+|  1 | Pavan     |  18 | Nellore   |
+|  2 | Sugu      |  19 | Chennai   |
+|  3 | Meenu     |  18 | Bengal    |
+|  4 | Keerthana |  19 | Delhi     |
+|  5 | Venkat    |  18 | Bengalore |
++----+-----------+-----+-----------+
+5 rows in set (0.00 sec)
+
+(e) Less than / equal to :-
+
+mysql> SELECT * FROM Test_students WHERE Age<=19;
++----+-----------+-----+-----------+
+| id | Name      | Age | City      |
++----+-----------+-----+-----------+
+|  1 | Pavan     |  18 | Nellore   |
+|  2 | Sugu      |  19 | Chennai   |
+|  3 | Meenu     |  18 | Bengal    |
+|  4 | Keerthana |  19 | Delhi     |
+|  5 | Venkat    |  18 | Bengalore |
++----+-----------+-----+-----------+
+5 rows in set (0.00 sec)
+
+(f) Not Equal to :-
+
+mysql> SELECT * FROM Test_students WHERE Age<>19;
++----+--------+-----+-----------+
+| id | Name   | Age | City      |
++----+--------+-----+-----------+
+|  1 | Pavan  |  18 | Nellore   |
+|  3 | Meenu  |  18 | Bengal    |
+|  5 | Venkat |  18 | Bengalore |
++----+--------+-----+-----------+
+3 rows in set (0.01 sec)
+
+
+3. MySQL Logical Operators:-
+
+(a) AND:-
+       TRUE if all the conditions separated by AND is TRUE
+  
+mysql> SELECT * FROM Test_students WHERE Name= "Pavan" and Age=18;
++----+-------+-----+---------+
+| id | Name  | Age | City    |
++----+-------+-----+---------+
+|  1 | Pavan |  18 | Nellore |
++----+-------+-----+---------+
+1 row in set (0.01 sec)
+
+(b) OR:-
+      TRUE if any of the conditions separated by OR is TRUE
+mysql> SELECT * FROM Test_students WHERE id = "1" or id="2";
++----+-------+-----+---------+
+| id | Name  | Age | City    |
++----+-------+-----+---------+
+|  1 | Pavan |  18 | Nellore |
+|  2 | Sugu  |  19 | Chennai |
++----+-------+-----+---------+
+2 rows in set (0.00 sec)
+
+(c) LIKE:-
+	TRUE if the operand matches a pattern.
+	
+	
+mysql> SELECT * FROM Test_students WHERE City like("B%");
++----+--------+-----+-----------+
+| id | Name   | Age | City      |
++----+--------+-----+-----------+
+|  3 | Meenu  |  18 | Bengal    |
+|  5 | Venkat |  18 | Bengalore |
++----+--------+-----+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Test_students WHERE City like("De%");
++----+-----------+-----+-------+
+| id | Name      | Age | City  |
++----+-----------+-----+-------+
+|  4 | Keerthana |  19 | Delhi |
++----+-----------+-----+-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM Test_students WHERE City like("%re");
++----+--------+-----+-----------+
+| id | Name   | Age | City      |
++----+--------+-----+-----------+
+|  1 | Pavan  |  18 | Nellore   |
+|  5 | Venkat |  18 | Bengalore |
++----+--------+-----+-----------+
+2 rows in set (0.01 sec)
+
+mysql> SELECT * FROM Test_students WHERE City like("N_____e");
++----+-------+-----+---------+
+| id | Name  | Age | City    |
++----+-------+-----+---------+
+|  1 | Pavan |  18 | Nellore |
++----+-------+-----+---------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM Test_students WHERE City like("___G%");
++----+--------+-----+-----------+
+| id | Name   | Age | City      |
++----+--------+-----+-----------+
+|  3 | Meenu  |  18 | Bengal    |
+|  5 | Venkat |  18 | Bengalore |
++----+--------+-----+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Test_students WHERE Name LIKE("_e%");
++----+-----------+-----+-----------+
+| id | Name      | Age | City      |
++----+-----------+-----+-----------+
+|  3 | Meenu     |  18 | Bengal    |
+|  4 | Keerthana |  19 | Delhi     |
+|  5 | Venkat    |  18 | Bengalore |
++----+-----------+-----+-----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Test_students WHERE Name LIKE("%a_");
++----+--------+-----+-----------+
+| id | Name   | Age | City      |
++----+--------+-----+-----------+
+|  1 | Pavan  |  18 | Nellore   |
+|  5 | Venkat |  18 | Bengalore |
++----+--------+-----+-----------+
+2 rows in set (0.00 sec)
+
+(d) IN:-
+      TRUE if the operand is equal to one of a list of expressions
+
+mysql> SELECT * FROM Test_students WHERE Name IN ("Pavan","Sugu","Meenu") ;
++----+-------+-----+---------+
+| id | Name  | Age | City    |
++----+-------+-----+---------+
+|  3 | Meenu |  18 | Bengal  |
+|  1 | Pavan |  18 | Nellore |
+|  2 | Sugu  |  19 | Chennai |
++----+-------+-----+---------+
+3 rows in set (0.00 sec)
+
+	
+(d) NOT:-
+	Displays a record if the condition(s) is NOT TRUE
+
+mysql> SELECT * FROM Test_students WHERE Name NOT IN ("Pavan","Sugu","Meenu") ;
++----+-----------+-----+-----------+
+| id | Name      | Age | City      |
++----+-----------+-----+-----------+
+|  4 | Keerthana |  19 | Delhi     |
+|  5 | Venkat    |  18 | Bengalore |
++----+-----------+-----+-----------+
+2 rows in set (0.00 sec)
+
+(e) BETWEEN:-
+      	   TRUE if the operand is within the range of comparisons
+      	   
+mysql> SELECT * FROM Test_students WHERE Age BETWEEN  17 AND 20 ;
++----+-----------+-----+-----------+
+| id | Name      | Age | City      |
++----+-----------+-----+-----------+
+|  1 | Pavan     |  18 | Nellore   |
+|  2 | Sugu      |  19 | Chennai   |
+|  3 | Meenu     |  18 | Bengal    |
+|  4 | Keerthana |  19 | Delhi     |
+|  5 | Venkat    |  18 | Bengalore |
++----+-----------+-----+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Test_students WHERE City LIKE("%re") AND Age  BETWEEN 17 AND 20 ;
++----+--------+-----+-----------+
+| id | Name   | Age | City      |
++----+--------+-----+-----------+
+|  1 | Pavan  |  18 | Nellore   |
+|  5 | Venkat |  18 | Bengalore |
++----+--------+-----+-----------+
+2 rows in set (0.00 sec)
+
+
+
+   	   
+      	   
+      	   
+

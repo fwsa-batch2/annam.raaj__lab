@@ -1,0 +1,301 @@
+Types of SQL statements:-
+
+     Four Types:-
+     
+1. DDL (Data Definition Language.):-
+                           Data definition language directly effects on the structure of the database.   
+                           
+(a) CREATE:-
+
+  CREATE TABLE table_name(column_name datatype KEY , column_name datatype);
+  
+ Example:- CREATE TABLE Students(TempID varchar(8) PRIMARY KEY  , Name_Of_Student varchar(50) NOT NULL , Office varchar(20) NOT NULL ); 
+  
+ALTER:-
+
+ (i) ALTER TABLE table_name DROP COLUMN column_name;
+
+   ALTER TABLE Customers DROP COLUMN Email; 
+   
+ (ii) ALTER TABLE table_name ADD column_name datatype; 
+
+  ALTER TABLE Customers ADD Email varchar(255); 
+  
+ (iii) The MODIFY command is used to __change the column definition__ of the table.
+
+ ALTER TABLE table_name MODIFY COLUMN column_name column definition;
+
+  ALTER TABLE Students  MODIFY student_name varchar(50);
+  
+ (iv) After the CHANGE keyword, you name the column you want to change, then specify the new definition, which includes the new name.
+
+ ALTER TABLE table_name  CHANGE  column_old_name column_new_name column_definition; 
+
+  ALTER TABLE Students CHANGE user_name student_name varchar(20);
+  
+  (v) ALTER TABLE table_name  RENAME TO new_table_name;  
+
+  ALTER TABLE Students RENAME TO student_details;
+   
+(c) DROP:-
+
+DROP DATABASE database_name;
+
+DROP TABLE table_name;
+
+
+(d) Truncate:-
+       It will delete the data from the storage itself.
+       
+ TRUNCATE TABLE table_name;       
+
+(e) Rename:-
+
+RENAME old_table_name To new_table_name;      --> (Best Practice )
+    
+ALTER TABLE old_table_name RENAME TO new_table_name; 
+
+
+2.DML (Data Manipulation language ):-
+
+
+(a) Insert into:-  
+
+INSERT INTO table_name VALUES(1 , “Pavan Raaj” , 100)
+
+(b) Update:-  
+
+UPDATE table_name SET column_name1=”value” WHERE column_name2=”value”;
+
+(c) Delete:-  
+
+DELETE FROM table_name WHERE column_name=value;
+
+(d) Select:-  
+
+The  SELECT  statement is used to select data from a database.
+
+SELECT column_names FROM table_name;
+
+SELECT * FROM table_name;
+
+3. DCL (Data Control  language ):-
+
+(a) Grant:-  
+
+You can grant users various privileges to tables. These permissions can be any combination of 
+
+SELECT, INSERT, UPDATE, DELETE, INDEX, CREATE, ALTER, DROP, GRANT OPTION or ALL.
+
+   
+   GRANT SELECT ON contacts TO 'smith'@'localhost';
+
+(b) Revoke:-  
+
+Once you have granted privileges, you may need to revoke some or all of these privileges. To do this, you can run a revoke command. You can revoke any combination of 
+
+SELECT, INSERT, UPDATE, DELETE, REFERENCES, ALTER, or ALL.
+
+       REVOKE SELECT ON contacts FROM 'smith'@'localhost';
+
+4. TCL (TRANSACTION CONTROL LANGUAGE):-
+
+(a) COMMIT;
+(b) ROLLBACK;
+(C) SAVEPOINT name;
+
+Code that I have worked on TCL Commands:-
+
+
+mysql> CREATE DATABASE Test_TCL;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| FWSA               |
+| Test_TCL           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| test               |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> USE  Test_TCL;
+Database changed
+mysql> START TRANSACTION;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SET AUTOCOMMIT = 0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CREATE TABLE TCL_Query(id INT PRIMARY KEY , Query VARCHAR(30) UNIQUE NOT NULL, Funcationality VARCHAR(30) NOT NULL);
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_Test_TCL |
++--------------------+
+| TCL_Query          |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE TEST(id INT PRIMARY KEY , Name VARCHAR(20) UNIQUE , Email VARCHAR(50) NOT NULL);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_Test_TCL |
++--------------------+
+| TCL_Query          |
+| TEST               |
++--------------------+
+2 rows in set (0.09 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_Test_TCL |
++--------------------+
+| TCL_Query          |
+| TEST               |
++--------------------+
+2 rows in set (0.00 sec)
+
+mysql> CREATE TABLE TEST_1(id INT PRIMARY KEY , Name VARCHAR(20) UNIQUE , Email VARCHAR(50) NOT NULL);
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_Test_TCL |
++--------------------+
+| TCL_Query          |
+| TEST               |
+| TEST_1             |
++--------------------+
+3 rows in set (0.01 sec)
+
+mysql> INSERT INTO TEST VALUES(1, "Pavan" , "pavanraaj@freshworks.com");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TEST VALUES(2, "Sugu" , "suguram@freshworks.com");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO TEST VALUES(3, "Meenu" , "Meenu@freshworks.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM TEST;
++----+-------+--------------------------+
+| id | Name  | Email                    |
++----+-------+--------------------------+
+|  1 | Pavan | pavanraaj@freshworks.com |
+|  2 | Sugu  | suguram@freshworks.com   |
++----+-------+--------------------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO TEST_1 VALUES(2, "Venkat" , "venkat@freshworks.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO TEST_1 VALUES(3, "Keerthana" , "kerthana@freshworks.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO TEST_1 VALUES(1, "Meenu" , "meenu@freshworks.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SAVEPOINT U2;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO TEST_1 VALUES(4, "Abisha" , "abisha@freshworks.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO TEST_1 VALUES(5, "Swetha" , "swetha@freshworks.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO TEST_1 VALUES(6, "Jerusheya" , "jerusheya@freshworks.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SAVEPOINT TB;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO TEST_1 VALUES(7, "Prasanna" , "prasanna@freshworks.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO TEST_1 VALUES(8, "Kaushik" , "kaushick@freshworks.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO TEST_1 VALUES(9, "Vaishnavi S" , "vaishnavi@freshworks.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SAVEPOINT 10 Dots;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10 Dots' at line 1
+mysql> SAVEPOINT 10Dots;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM TEST_1;
++----+-------------+--------------------------+
+| id | Name        | Email                    |
++----+-------------+--------------------------+
+|  1 | Meenu       | meenu@freshworks.com     |
+|  2 | Venkat      | venkat@freshworks.com    |
+|  3 | Keerthana   | kerthana@freshworks.com  |
+|  4 | Abisha      | abisha@freshworks.com    |
+|  5 | Swetha      | swetha@freshworks.com    |
+|  6 | Jerusheya   | jerusheya@freshworks.com |
+|  7 | Prasanna    | prasanna@freshworks.com  |
+|  8 | Kaushik     | kaushick@freshworks.com  |
+|  9 | Vaishnavi S | vaishnavi@freshworks.com |
++----+-------------+--------------------------+
+9 rows in set (0.00 sec)
+
+mysql> ROLLBACK TO U2;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> SELECT * FROM TEST_1;
++----+-----------+-------------------------+
+| id | Name      | Email                   |
++----+-----------+-------------------------+
+|  1 | Meenu     | meenu@freshworks.com    |
+|  2 | Venkat    | venkat@freshworks.com   |
+|  3 | Keerthana | kerthana@freshworks.com |
++----+-----------+-------------------------+
+3 rows in set (0.03 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -69,3 +69,59 @@ mysql> desc United;
 +-------+-------------+------+-----+---------+-------+
 4 rows in set (0.00 sec)
 
+
+Composite Key Using CREATE Statement:-
+
+ 1. CREATE TABLE table_name (column_name DATATYPE CONSTRAINT,column_name DATATYPE,column_name DATATYPE,PRIMARY KEY( column_name, column_name));  
+
+
+mysql> CREATE TABLE Test_Composite_Key(id int NOT NULL , Name VARCHAR(45), Email VARCHAR(50), PRIMARY KEY(Name , Email));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> DESC Test_Composite_Key;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   |     | NULL    |       |
+| Name  | varchar(45) | NO   | PRI | NULL    |       |
+| Email | varchar(50) | NO   | PRI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+
+2.ALTER TABLE table_name add primary key(column_name,column_name);  
+
+
+mysql> CREATE TABLE Test_Composite_Key_Using_Alter(id int NOT NULL , Name VARCHAR(45), Email VARCHAR(50));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> DESC Test_Composite_Key_Using_Alter;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   |     | NULL    |       |
+| Name  | varchar(45) | YES  |     | NULL    |       |
+| Email | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE Test_Composite_Key_Using_Alter ADD PRIMARY KEY(Name , Email);
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC Test_Composite_Key_Using_Alter;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   |     | NULL    |       |
+| Name  | varchar(45) | NO   | PRI | NULL    |       |
+| Email | varchar(50) | NO   | PRI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+
+
+
+
+
+

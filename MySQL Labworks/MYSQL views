@@ -1,0 +1,164 @@
+Views:-
+
+1.Creating a view:-
+
+mysql> CREATE VIEW Students_18_below AS SELECT id,name,age FROM students WHERE Age < 18;
+
+mysql> SELECT * FROM Students_18_below;
++-----+--------+------+
+| id  | name   | age  |
++-----+--------+------+
+| 307 | Swetha |   17 |
++-----+--------+------+
+1 row in set (0.00 sec)
+
+2.Inserting a row in a view
+
+mysql> INSERT INTO Students_18_below VALUES (311,"Kasi",17);
+
+mysql> SELECT * FROM Students_18_below;
++-----+--------+------+
+| id  | name   | age  |
++-----+--------+------+
+| 307 | Swetha |   17 |
+| 311 | Kasi   |   17 |
++-----+--------+------+
+2 rows in set (0.00 sec)
+
+3.Updating a view:-
+
+mysql> CREATE OR REPLACE VIEW Students_18_below AS SELECT id , Name ,  Age FROM students WHERE Age <= 18;
+
+mysql> SELECT * FROM Students_18_below;
++-----+-----------+------+
+| id  | Name      | Age  |
++-----+-----------+------+
+| 301 | Pavan     |   18 |
+| 302 | Meenuu    |   18 |
+| 304 | Abisha    |   18 |
+| 306 | Vaishnavi |   18 |
+| 307 | Swetha    |   17 |
++-----+-----------+------+
+5 rows in set (0.01 sec)
+
+
+mysql> DELETE  FROM Students_18_below WHERE id=311;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM Students_18_below;
++-----+-----------+------+
+| id  | Name      | Age  |
++-----+-----------+------+
+| 301 | Pavan     |   18 |
+| 302 | Meenuu    |   18 |
+| 304 | Abisha    |   18 |
+| 306 | Vaishnavi |   18 |
+| 307 | Swetha    |   17 |
++-----+-----------+------+
+5 rows in set (0.01 sec)
+
+
+4.Creating view from multiple tables:-
+
+mysql> CREATE VIEW Students_above_18_squad AS SELECT students.id,students.name,squads.squad_name,students.Age FROM students,squads WHERE students.Age > 18 AND students.id=squads.id;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> SELECT * FROM Students_above_18_squad;
++-----+-----------+------------+------+
+| id  | name      | squad_name | Age  |
++-----+-----------+------------+------+
+| 303 | suguram   | U2         |   19 |
+| 305 | keerthana | U2         |   20 |
+| 308 | Hasan     | 10 Dots    |   19 |
+| 309 | Kaushik   | 10 DOTS    |   20 |
+| 310 | Deepak    | U2         |   19 |
++-----+-----------+------------+------+
+5 rows in set (0.00 sec)
+
+
+ 5.Renaming a view:-
+ 
+ mysql> SHOW TABLES;
++-------------------------+
+| Tables_in_FWSA          |
++-------------------------+
+| Students_18_below       |
+| Students_18_plus        |
+| Students_above_18_squad |
+| squads                  |
+| students                |
++-------------------------+
+5 rows in set (0.00 sec)
+
+mysql> RENAME TABLE Students_above_18_squad TO Students_above_18_squad_list;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW TABLES;
++------------------------------+
+| Tables_in_FWSA               |
++------------------------------+
+| Students_18_below            |
+| Students_18_plus             |
+| Students_above_18_squad_list |
+| squads                       |
+| students                     |
++------------------------------+
+5 rows in set (0.00 sec)
+
+
+6.Drop a view:-
+ 
+mysql> DROP VIEW Students_above_18_squad;
+Query OK, 0 rows affected (0.01 sec)
+
+6.How to find table type ?
+
+mysql> SHOW FULL TABLES WHERE TABLE_TYPE = "VIEW";
++------------------------------+------------+
+| Tables_in_FWSA               | Table_type |
++------------------------------+------------+
+| Students_18_below            | VIEW       |
+| Students_18_plus             | VIEW       |
+| Students_above_18_squad_list | VIEW       |
++------------------------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> SHOW FULL TABLES WHERE TABLE_TYPE != "BASE TABLE";
++------------------------------+------------+
+| Tables_in_FWSA               | Table_type |
++------------------------------+------------+
+| Students_18_below            | VIEW       |
+| Students_18_plus             | VIEW       |
+| Students_above_18_squad_list | VIEW       |
++------------------------------+------------+
+3 rows in set (0.01 sec)
+
+mysql> SHOW FULL TABLES WHERE TABLE_TYPE = "BASE TABLE";
++----------------+------------+
+| Tables_in_FWSA | Table_type |
++----------------+------------+
+| squads         | BASE TABLE |
+| students       | BASE TABLE |
++----------------+------------+
+2 rows in set (0.01 sec)
+
+mysql> SHOW FULL TABLES WHERE TABLE_TYPE != "VIEW";
++----------------+------------+
+| Tables_in_FWSA | Table_type |
++----------------+------------+
+| squads         | BASE TABLE |
+| students       | BASE TABLE |
++----------------+------------+
+2 rows in set (0.01 sec)
+
+
+
+
+
+
+
+
+
+
+
+

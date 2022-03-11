@@ -1,0 +1,92 @@
+Groups ,Distinct , Order by :-
+
+1.Group by :-
+
+mysql> SELECT COUNT(*) FROM students GROUP BY Age;
++----------+
+| COUNT(*) |
++----------+
+|        4 |
+|        3 |
+|        2 |
+|        1 |
++----------+
+4 rows in set (0.01 sec)
+
+mysql> SELECT COUNT(*),Age FROM students GROUP BY Age;
++----------+------+
+| COUNT(*) | Age  |
++----------+------+
+|        4 |   18 |
+|        3 |   19 |
+|        2 |   20 |
+|        1 |   17 |
++----------+------+
+4 rows in set (0.00 sec)
+
+2.Distinct :
+
+mysql> SELECT Age FROM students;
++------+
+| Age  |
++------+
+|   18 |
+|   18 |
+|   19 |
+|   18 |
+|   20 |
+|   18 |
+|   17 |
+|   19 |
+|   20 |
+|   19 |
++------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT DISTINCT(Age) FROM students;
++------+
+| Age  |
++------+
+|   18 |
+|   19 |
+|   20 |
+|   17 |
++------+
+4 rows in set (0.01 sec)
+
+3.Order by:-
+
+
+mysql> SELECT * FROM students ORDER BY Age DESC;
++-----+-----------+------------------------+------+
+| id  | Name      | Email_id               | Age  |
++-----+-----------+------------------------+------+
+| 305 | keerthana | keerthana456@gmail.com |   20 |
+| 309 | Kaushik   | kaushick@gmail.com     |   20 |
+| 303 | suguram   | sugu@google.com        |   19 |
+| 308 | Hasan     | hasan567@gmail.com     |   19 |
+| 310 | Deepak    | deepak098@gmail.com    |   19 |
+| 301 | Pavan     | pavanfreshorks.com     |   18 |
+| 302 | Meenuu    | meenu@gmail.com        |   18 |
+| 304 | Abisha    | abisha123@gmail.com    |   18 |
+| 306 | Vaishnavi | vaishu789@gmail.com    |   18 |
+| 307 | Swetha    | swetha234@gmail.com    |   17 |
++-----+-----------+------------------------+------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM students ORDER BY Age ASC;
++-----+-----------+------------------------+------+
+| id  | Name      | Email_id               | Age  |
++-----+-----------+------------------------+------+
+| 307 | Swetha    | swetha234@gmail.com    |   17 |
+| 301 | Pavan     | pavanfreshorks.com     |   18 |
+| 302 | Meenuu    | meenu@gmail.com        |   18 |
+| 304 | Abisha    | abisha123@gmail.com    |   18 |
+| 306 | Vaishnavi | vaishu789@gmail.com    |   18 |
+| 303 | suguram   | sugu@google.com        |   19 |
+| 308 | Hasan     | hasan567@gmail.com     |   19 |
+| 310 | Deepak    | deepak098@gmail.com    |   19 |
+| 305 | keerthana | keerthana456@gmail.com |   20 |
+| 309 | Kaushik   | kaushick@gmail.com     |   20 |
++-----+-----------+------------------------+------+
+10 rows in set (0.00 sec)

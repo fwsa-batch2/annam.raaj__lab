@@ -1,0 +1,93 @@
+mysql> SELECT * FROM students;
++-----+-----------+------------------------+------+
+| id  | Name      | Email_id               | Age  |
++-----+-----------+------------------------+------+
+| 301 | Pavan     | pavanfreshorks.com     |   18 |
+| 302 | Meenuu    | meenu@gmail.com        |   18 |
+| 303 | suguram   | sugu@google.com        |   19 |
+| 304 | Abisha    | abisha123@gmail.com    |   18 |
+| 305 | keerthana | keerthana456@gmail.com |   20 |
+| 306 | Vaishnavi | vaishu789@gmail.com    |   18 |
+| 307 | Swetha    | swetha234@gmail.com    |   17 |
+| 308 | Hasan     | hasan567@gmail.com     |   19 |
+| 309 | Kaushik   | kaushick@gmail.com     |   20 |
+| 310 | Deepak    | deepak098@gmail.com    |   19 |
++-----+-----------+------------------------+------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT * FROM squads;
++------+------------+
+| id   | squad_name |
++------+------------+
+|  301 | U2         |
+|  302 | U2         |
+|  302 | U2         |
+|  303 | U2         |
+|  304 | TB         |
+|  305 | U2         |
+|  306 | U2         |
+|  307 | TB         |
+|  308 | 10 Dots    |
+|  309 | 10 DOTS    |
+|  310 | U2         |
++------+------------+
+11 rows in set (0.00 sec)
+
+
+mysql> SELECT ABC.* FROM (SELECT * FROM students WHERE Age >  19) AS ABC;
++-----+-----------+------------------------+------+
+| id  | Name      | Email_id               | Age  |
++-----+-----------+------------------------+------+
+| 305 | keerthana | keerthana456@gmail.com |   20 |
+| 309 | Kaushik   | kaushick@gmail.com     |   20 |
++-----+-----------+------------------------+------+
+2 rows in set (0.01 sec)
+
+
+mysql> SELECT ABC.* FROM (SELECT * FROM students WHERE Age >  19) AS ABC;
++-----+-----------+------------------------+------+
+| id  | Name      | Email_id               | Age  |
++-----+-----------+------------------------+------+
+| 305 | keerthana | keerthana456@gmail.com |   20 |
+| 309 | Kaushik   | kaushick@gmail.com     |   20 |
++-----+-----------+------------------------+------+
+2 rows in set (0.01 sec)
+
+
+mysql> SELECT AVG(Age) FROM students;
++----------+
+| AVG(Age) |
++----------+
+|  18.6000 |
++----------+
+1 row in set (0.00 sec)
+
+
+mysql> SELECT * FROM students WHERE Age > (SELECT AVG(Age) FROM students);
++-----+-----------+------------------------+------+
+| id  | Name      | Email_id               | Age  |
++-----+-----------+------------------------+------+
+| 303 | suguram   | sugu@google.com        |   19 |
+| 305 | keerthana | keerthana456@gmail.com |   20 |
+| 308 | Hasan     | hasan567@gmail.com     |   19 |
+| 309 | Kaushik   | kaushick@gmail.com     |   20 |
+| 310 | Deepak    | deepak098@gmail.com    |   19 |
++-----+-----------+------------------------+------+
+5 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM students WHERE Age > (SELECT AVG(Age) FROM students);
++-----+-----------+------------------------+------+
+| id  | Name      | Email_id               | Age  |
++-----+-----------+------------------------+------+
+| 303 | suguram   | sugu@google.com        |   19 |
+| 305 | keerthana | keerthana456@gmail.com |   20 |
+| 308 | Hasan     | hasan567@gmail.com     |   19 |
+| 309 | Kaushik   | kaushick@gmail.com     |   20 |
+| 310 | Deepak    | deepak098@gmail.com    |   19 |
++-----+-----------+------------------------+------+
+5 rows in set (0.00 sec)
+
+
+
+

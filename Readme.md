@@ -466,6 +466,9 @@ Newly added trips
 CREATE VIEW newly_added_trips AS SELECT place_id,place_name,country,cost_of_trip,pick_up_at,trip_added_date,guide_id FROM place_details WHERE trip_added_date > "2022-03-22 14:34:32";
 ```
 
+```
+SELECT * FROM newly_added_trips;
+```
 
 | place_id | place_name   | country | cost_of_trip | pick_up_at     | trip_added_date     | guide_id |
 |:--------:|:------------:|:-------:|:------------:|:--------------:|:-------------------:|:--------:|

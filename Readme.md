@@ -474,7 +474,7 @@ CREATE VIEW newly_added_trips AS SELECT place_id,place_name,country,cost_of_trip
 |        6 | Varanasi     | INDIA   |        57899 | Taj Ganges     | 2022-03-23 12:22:35 |      113 |
 
 
-
+ER-Diagram:
 
 
 
@@ -484,6 +484,7 @@ CREATE VIEW newly_added_trips AS SELECT place_id,place_name,country,cost_of_trip
 
 
 
+EER-Diagram:
 
 
 
@@ -492,6 +493,8 @@ CREATE VIEW newly_added_trips AS SELECT place_id,place_name,country,cost_of_trip
 
 
 
+
+![EER](https://user-images.githubusercontent.com/93571072/159657781-6296dad5-6867-4591-b1e0-26fdd9184d9a.png)
 
 
 

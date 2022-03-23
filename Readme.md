@@ -459,8 +459,19 @@ SELECT tourist_details.tourist_id , hotel_details.place_id , hotel_details.reser
 |        103 |        2 |      73 |     1002 |
 |        109 |        3 |      20 |     1003 |
 
+----
+Newly added trips
+
+```
+CREATE VIEW newly_added_trips AS SELECT place_id,place_name,country,cost_of_trip,pick_up_at,trip_added_date,guide_id FROM place_details WHERE trip_added_date > "2022-03-22 14:34:32";
+```
 
 
+| place_id | place_name   | country | cost_of_trip | pick_up_at     | trip_added_date     | guide_id |
+|:--------:|:------------:|:-------:|:------------:|:--------------:|:-------------------:|:--------:|
+|        4 | Araku Valley | INDIA   |        67999 | Raj Residency  | 2022-03-23 12:20:17 |      111 |
+|        5 | Ooty         | INDIA   |        57999 | Hotel Lakeview | 2022-03-23 12:21:34 |      112 |
+|        6 | Varanasi     | INDIA   |        57899 | Taj Ganges     | 2022-03-23 12:22:35 |      113 |
 
 
 

@@ -54,7 +54,16 @@ Registration of users:
 
 * INSERT INTO User_details VALUES(110 , "Ismail" , "ismail@gmail.com" , "ismail19" , 9675432187 , "2002-02-21" , "Male" , "Indian" );
 
+* INSERT INTO User_details VALUES(111 , "Musaraf" , "musaraf@gmail.com" , "mus@1234" , 8776599087 , "2001-04-12" , "Male" , "Indian" );
+
+* INSERT INTO User_details VALUES(112 , "Venkat" , "venkat@gmail.com" , "venkat@1" , 7665498362 , "2004-03-03" , "Male" , "Indian" );
+
+* INSERT INTO User_details VALUES(113 , "kamal" , "kamal@gmail.com" , "kamal@13" , 9111234456 , "2002-03-21" , "Male" , "Indian" );
+
+
 ```
+
+
 User list:
 
 ```
@@ -74,7 +83,9 @@ SELECT * FROM User_details;
 | 108 | Deepak     | deepak@gmail.com    | deepak@8 |    8776655489 | 2003-11-03    | Male   | Indian      |
 | 109 | Hasan      | hasan@gmail.com     | hasan@09 |    7665544352 | 2000-12-23    | Male   | Indian      |
 | 110 | Ismail     | ismail@gmail.com    | ismail19 |    9675432187 | 2002-02-21    | Male   | Indian      |
-
+| 111 | Musaraf    | musaraf@gmail.com   | mus@1234 |    8776599087 | 2001-04-12    | Male   | Indian      |
+| 112 | Venkat     | venkat@gmail.com    | venkat@1 |    7665498362 | 2004-03-03    | Male   | Indian      |
+| 113 | kamal      | kamal@gmail.com     | kamal@13 |    9111234456 | 2002-03-21    | Male   | Indian      |
 
 ----
 
@@ -95,7 +106,7 @@ Creating roles table:
 | role_name | varchar(50) | NO   |     | NULL    |       |
 
 ```
-INSERT INTO User_roles VALUES(101 , "Admin"),(102 , "Tourist"),(103 , "Tourist"),(104 , "Guide"),(105 , "Driver"),(106 , "Driver"),(107 , "Driver"),(108 , "Guide"),(109 , "tourist"),(110 , "Guide");
+INSERT INTO User_roles VALUES(101 , "Admin"),(102 , "Tourist"),(103 , "Tourist"),(104 , "Guide"),(105 , "Driver"),(106 , "Driver"),(107 , "Driver"),(108 , "Guide"),(109 , "tourist"),(110 , "Guide") , (111,"Guide") , (112,"Guide") , (113,"Guide");
 ```
 
 Roles of users:
@@ -117,6 +128,9 @@ SELECT * FROM User_roles;
 |     108 | Guide     |
 |     109 | tourist   |
 |     110 | Guide     |
+|     111 | Guide     |
+|     112 | Guide     |
+|     113 | Guide     |
 
 
 ----
@@ -148,6 +162,12 @@ Places details:
 
 * INSERT INTO place_details VALUES(3 , "New York" , "America" , 159999 , "Chennai International Airport,Chennai" , now() , 110 );
 
+* INSERT INTO place_details VALUES(4 , "Araku Valley" , "INDIA" , 67999 , "Raj Residency" , now() , 111 );
+
+* INSERT INTO place_details VALUES(5 , "Ooty" , "INDIA" , 57999 , "Hotel Lakeview" , now() , 112 );
+
+* INSERT INTO place_details VALUES(6 , "Varanasi" , "INDIA" , 57899 , "Taj Ganges" , now() , 113 );
+
 ```
 
 ```
@@ -155,12 +175,14 @@ SELECT * FROM place_details;
 ```
 
 
-| place_id | place_name | country | cost_of_trip | pick_up_at                            | trip_added_date     | guide_id |
-|:--------:|:----------:|:-------:|:-----------:|:-------------------------------------:|:-------------------:|:--------:|
-|        1 | Agra       | India   |        87999 | Perungudi,Chennai                     | 2022-03-22 14:28:20 |      104 |
-|        2 | Darjeeling | India   |        67999 | BTM Layout,Bengalore                  | 2022-03-22 14:31:50 |      108 |
-|        3 | New York   | America |       159999 | Chennai International Airport,Chennai | 2022-03-22 14:34:32 |      110 |
-
+| place_id | place_name   | country | cost_of_trip | pick_up_at                            | trip_added_date     | guide_id |
+|:--------:|:------------:|:-------:|:-----------:|:-------------------------------------:|:-------------------:|:--------:|
+|        1 | Agra         | India   |        87999 | Perungudi,Chennai                     | 2022-03-22 14:28:20 |      104 |
+|        2 | Darjeeling   | India   |        67999 | BTM Layout,Bengalore                  | 2022-03-22 14:31:50 |      108 |
+|        3 | New York     | America |       159999 | Chennai International Airport,Chennai | 2022-03-22 14:34:32 |      110 |
+|        4 | Araku Valley | INDIA   |        67999 | Raj Residency                         | 2022-03-23 12:20:17 |      111 |
+|        5 | Ooty         | INDIA   |        57999 | Hotel Lakeview                        | 2022-03-23 12:21:34 |      112 |
+|        6 | Varanasi     | INDIA   |        57899 | Taj Ganges                            | 2022-03-23 12:22:35 |      113 |
 
 
 ----
@@ -274,6 +296,12 @@ Hotel details:
 
 * INSERT INTO hotel_details VALUES(1003 , "Hilton" , 3 , 20 );
 
+* INSERT INTO hotel_details VALUES(1004 , "Raj Residency" , 4 , 32 );
+
+* INSERT INTO hotel_details VALUES(1005 , "Hotel Lakeview" , 5 , 22 );
+
+* INSERT INTO hotel_details VALUES(1006 , "Taj Ganges" , 6 , 67 ); 
+
 ```
 
 ```
@@ -286,6 +314,9 @@ SELECT * FROM hotel_details;
 |     1001 | The Oberoi Amarvilas |        1 |               89 |
 |     1002 | Mayfair              |        2 |               73 |
 |     1003 | Hilton               |        3 |               20 |
+|     1004 | Raj Residency        |        4 |               32 |
+|     1005 | Hotel Lakeview       |        5 |               22 |
+|     1006 | Taj Ganges           |        6 |               67 |
 
 
 
@@ -367,7 +398,7 @@ SELECT * FROM contact_us;
 ```
 
 | user_id | query                                                                           |
-|:--------:|:-------------------------------------------------------------------------------:|
+|:-------:|:-------------------------------------------------------------------------------:|
 |     108 | Not able to see to which palces I was assigned, can you please help me on this. |
 |     109 | I didn't get my ticket via mail can you please check over this.                 |
 |     105 | My bus is facing a trouble please change the bus of travel.                     |
@@ -415,11 +446,10 @@ SELECT * FROM reviews;
 
 
 ----
-Details of tourists in which hotel;
+Details of tourists in which hotel (Joins):
 
 ```
-SELECT tourist_details.tourist_id , hotel_details.place_id , hotel_details.reserved_room_no AS room_no FROM tourist_details , hotel_details.hotel_id FROM tourist_details INNER JOIN hotel_details ON tourist_details.id_of_place_booked=hotel_det
-ails.place_id;
+SELECT tourist_details.tourist_id , hotel_details.place_id , hotel_details.reserved_room_no AS room_no , hotel_details.hotel_id FROM tourist_details INNER JOIN hotel_details ON tourist_details.id_of_place_booked=hotel_details.place_id;
 ```
 
 
@@ -430,9 +460,7 @@ ails.place_id;
 |        109 |        3 |      20 |     1003 |
 
 
-x-special/nautilus-clipboard
-copy
-file:///home/annampavanraaj/Downloads/Drawing%20(1).png
+
 
 
 

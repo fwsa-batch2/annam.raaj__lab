@@ -18,10 +18,9 @@ public class IoExtraMethods {
 
         //list
         File fl2=new File("//home//annampavanraaj//technical2");
-
-//        for (String lists : fl2.list() ) {
-//            System.out.println(lists);
-//        }
-        System.out.println(fl2.list().);
+        fl2.list();
+        for (String lists : fl2.list() ) {
+            System.out.println(lists);
+        }
     }
 }

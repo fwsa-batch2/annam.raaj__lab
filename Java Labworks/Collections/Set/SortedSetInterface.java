@@ -2,21 +2,21 @@ package com.JavaBasics;
 import java.util.*;
 public class SortedSetInterface {
     public static void main(String[] args){
-        SortedSet<String> ts = new TreeSet<String>();
-        ts.add("A");
-        ts.add("B");
-        ts.add("C");
-        ts.add("A");
+        SortedSet<Integer> ts = new TreeSet<>();
+        ts.add(3);
+        ts.add(5);
+        ts.add(6);
+        ts.add(1);
         System.out.println("Sorted Set is " + ts);
 
-        String check = "D";
-        System.out.println("Contains " + check + " " + ts.contains(check));
+//        String check = "D";
+//        System.out.println("Contains " + check + " " + ts.contains(check));
 
         System.out.println("First Value " + ts.first());
         System.out.println("Last Value " + ts.last());
 
         System.out.println("Iterating over a Set");
-        Iterator<String> i = ts.iterator();
+        Iterator<Integer> i = ts.iterator();
         while (i.hasNext())
             System.out.println(i.next());
     }

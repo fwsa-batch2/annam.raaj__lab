@@ -7,11 +7,12 @@ public class SetInterfaceExample {
     public static void main(String[] args)
     {
 
-        Set<String> hash_Set = new HashSet<String>();
+        HashSet<String> hash_Set = new HashSet<>();
 
 
         hash_Set.add("Hello");
         hash_Set.add("I");
+        hash_Set.add(null);
         hash_Set.add("Am");
         hash_Set.add("Pavan");
         hash_Set.add("Hello");
